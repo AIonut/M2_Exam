@@ -1,2 +1,2 @@
-# M2_Exam
-Second module of the current project. 
+# Onlinelearningplatform
+Attempt to build an online learning platform for biology and chemistry
