@@ -1,3 +1,6 @@
+*// Do not delete this comment:
+*// Here will be te recovery password page. Only field required is email.
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +18,7 @@ html, body {height: 100%;}
 #header{
     height: 40px;
     background: #658CBF;
-}
+    }
 #content{
   padding: 10px;min-height:80%;
   } 
@@ -60,31 +63,20 @@ width: 135px;
  
 <body>
 	<div id="header"></div>
-<?php
-$auth_token = $this->input->get('auth_token', TRUE);
-
-if(isset( $postauth_token )) {
-	$auth_token = $postauth_token;
-}
-//echo $user;
-?>
+	
 	<div id="content" class="container">
 		<div id="register_form">
-			<h1>Reset Password</h1>
-			<form action="<?=site_url('user/do_resetpassword')?>" method="post">				
-				<label for="password">New Password</label>
-				<input type="password" name="password"/>
-				<label for="password">Confirm Password</label>
-				<input type="password" name="confirm_password"/>
-				<input type="hidden" name="auth_token" value="<?=$auth_token?>">										
-				<input type="submit" value="Submit" name="reset_password"/>
+			<h1>Forgot Password</h1>
+			<form action="<?=site_url('user/do_forget')?>" method="post">				
+				<label for="email">Email</label>
+				<input type="text" name="email" value="<?=set_value('email') ?>" />												
+				<input type="submit" value="Submit" name="forgot_password"/>
 				<a href="<?=site_url('user/login')?>">Login</a>
 			</form>
 		</div>
 	<br/>
 	<div class="error">
-		<?php
-		//echo $this->input->get('auth_token', TRUE);
+		<?php 
 		echo validation_errors();
 		$message = $this->session->flashdata('message');
 		echo $message; 
